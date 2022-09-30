@@ -1,0 +1,15 @@
+<div class="container">
+    <mat-form-field>
+        <mat-label>Task Name</mat-label>
+        <input matInput [(ngModel)] = 'taskName'/> 
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Task Description</mat-label>
+        <input matInput [(ngModel)] = 'description'/> 
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Task Status</mat-label>
+        <input matInput [(ngModel)] = 'status'/>
+    </mat-form-field>
+    <button mat-button mat-dialog-close (click)="onAddClick()">Add</button>
+</div>

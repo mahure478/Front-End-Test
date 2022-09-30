@@ -1,0 +1,56 @@
+<div class="container">
+        <div class="title">Project Manager</div>
+       <div class="create-project" (click)="addNewProject()">
+        <button mat-button color="primary">Create a New Project</button>
+       </div>
+     <!--Project NAme-->
+      <mat-accordion *ngFor="let project of resultArr;let i=index" multi="true">
+        <mat-expansion-panel showToggle="true">
+          <mat-expansion-panel-header>
+            <div class="project">
+                {{project.name}}
+                <img src ="../../assets/icons8-edit-24.png" (click)="editProject(i)"/>
+                <img src="../../assets/icons8-delete-30.png" (click)="deleteProject(i)"/>
+                <button mat-button (click)="addNewTask(i)">Add TASK</button>
+            </div>
+           
+          </mat-expansion-panel-header>
+          <!--Task NAme-->
+          <ng-template matExpansionPanelContent>
+            <mat-accordion *ngFor="let task of project?.tasks; let j = index;" multi="false">
+              <mat-expansion-panel
+                showToggle="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-description>
+                    <div class="project">
+                      {{task.name}} 
+                      <button mat-button (click)="addNewSubTask(i,j)">Add Sub Task</button>
+                      <img src="../../assets/icons8-delete-30.png" (click)="deleteTask(i,j)"/>
+                  </div>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <!--Children Task-->
+                <ng-template matExpansionPanelContent>
+                        <mat-accordion *ngFor="let children of task?.children;let k = index">
+    
+                                <mat-expansion-panel
+                                  showToggle="true">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-description>
+                                      <div class="project">
+                                        {{children.name}} 
+                                        <img src="../../assets/icons8-delete-30.png" (click)="deleteSubTask(i,j)"/>
+                                    </div>
+                                    </mat-panel-description>
+                                  </mat-expansion-panel-header>
+                                  </mat-expansion-panel>
+                                  </mat-accordion>
+                </ng-template>
+              </mat-expansion-panel>
+    
+            </mat-accordion>
+          </ng-template>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+      </div>

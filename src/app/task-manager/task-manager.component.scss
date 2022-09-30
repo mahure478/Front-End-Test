@@ -1,0 +1,30 @@
+.container {
+    margin:20px;
+    mat-accordion {
+        margin-bottom: 20px;
+    }
+    .title {
+        text-align: center;
+        font-size: 20px;
+        color:brown;
+    }
+    .create-project {
+        margin: 20px;
+    }
+    .project {
+        display: flex;
+        align-items: center;
+        img {
+            position: absolute;
+            left: 90%;
+        }
+        img:nth-child(1) {
+            position: absolute;
+            left: 75%;
+        }
+        button {
+            position: absolute;
+            left: 80%;
+        }
+    }
+}
